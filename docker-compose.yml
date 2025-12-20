@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: odoo:18.0
+    image: odoo:19.0
     depends_on:
       - postgres
     ports:
@@ -9,6 +9,7 @@ services:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./custom-addons:/mnt/extra-addons
+      - ./addons/web:/usr/lib/python3/dist-packages/odoo/addons/web
     environment:
       - HOST=postgres
       - USER=odoo
