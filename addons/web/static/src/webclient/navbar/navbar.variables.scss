@@ -4,14 +4,14 @@ $o-navbar-height: 46px !default;
 $o-navbar-padding-v: 0px !default;
 $o-navbar-font-size: $o-font-size-base !default;
 
-$o-navbar-background: $o-brand-odoo !default;
-$o-navbar-border-bottom: 1px solid darken($o-brand-odoo, 10%) !default;
+$o-navbar-background: #87CEEB !default;
+$o-navbar-border-bottom: 1px solid darken(#87CEEB, 10%) !default;
 
 $o-navbar-entry-margin-h: 0 !default;
 $o-navbar-entry-padding-h: .63em !default;
 $o-navbar-entry-border-radius: 0 !default;
-$o-navbar-entry-color: rgba($o-white, .9) !default;
-$o-navbar-entry-color--hover: $o-white !default;
+$o-navbar-entry-color: rgba($o-black, .8) !default;
+$o-navbar-entry-color--hover: $o-black !default;
 $o-navbar-entry-font-size: 1em !default;
 $o-navbar-entry-bg--hover: rgba($o-black, .08) !default;
 
