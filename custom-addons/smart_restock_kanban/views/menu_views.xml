@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action for Smart Restock Kanban Board -->
+    <record id="action_product_restock_kanban" model="ir.actions.act_window">
+        <field name="name">Smart Restock</field>
+        <field name="res_model">product.product</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="product_product_restock_kanban_view"/>
+        <field name="search_view_id" ref="product_product_restock_search_view"/>
+        <field name="domain">[('is_storable', '=', True)]</field>
+        <field name="context">{'search_default_filter_storable': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No products to display
+            </p>
+            <p>
+                Create storable products to see them on the Smart Restock Kanban board.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu under Inventory > Reporting -->
+    <menuitem id="menu_smart_restock_kanban"
+              name="Smart Restock"
+              action="action_product_restock_kanban"
+              parent="stock.menu_warehouse_report"
+              sequence="10"/>
+
+    <!-- Settings Menu -->
+    <menuitem id="menu_restock_config"
+              name="Restock Kanban Settings"
+              action="action_restock_config"
+              parent="stock.menu_stock_config_settings"
+              sequence="50"
+              groups="stock.group_stock_manager"/>
+</odoo>

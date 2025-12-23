@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Configuration Form View -->
+    <record id="restock_kanban_config_form_view" model="ir.ui.view">
+        <field name="name">restock.kanban.config.form</field>
+        <field name="model">restock.kanban.config</field>
+        <field name="arch" type="xml">
+            <form string="Restock Kanban Configuration">
+                <sheet>
+                    <group>
+                        <group string="Thresholds (Days of Stock)">
+                            <field name="healthy_threshold"/>
+                            <field name="warning_threshold"/>
+                            <field name="critical_threshold"/>
+                        </group>
+                        <group string="Calculation Settings">
+                            <field name="lookback_days"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <div class="alert alert-info" role="alert">
+                        <strong>How it works:</strong>
+                        <ul class="mb-0">
+                            <li><strong>Healthy:</strong> Products with more than <field name="healthy_threshold" class="oe_inline" readonly="1"/> days of stock</li>
+                            <li><strong>Warning:</strong> Products with <field name="critical_threshold" class="oe_inline" readonly="1"/> to <field name="warning_threshold" class="oe_inline" readonly="1"/> days of stock</li>
+                            <li><strong>Critical:</strong> Products with less than <field name="critical_threshold" class="oe_inline" readonly="1"/> days of stock</li>
+                            <li><strong>Out of Stock:</strong> Products with no stock available</li>
+                        </ul>
+                        <p class="mt-2 mb-0">Days of stock is calculated based on average daily consumption over the last <field name="lookback_days" class="oe_inline" readonly="1"/> days.</p>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Configuration Tree View -->
+    <record id="restock_kanban_config_tree_view" model="ir.ui.view">
+        <field name="name">restock.kanban.config.tree</field>
+        <field name="model">restock.kanban.config</field>
+        <field name="arch" type="xml">
+            <list string="Restock Kanban Configurations">
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="healthy_threshold"/>
+                <field name="warning_threshold"/>
+                <field name="critical_threshold"/>
+                <field name="lookback_days"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action for Configuration -->
+    <record id="action_restock_config" model="ir.actions.act_window">
+        <field name="name">Restock Kanban Settings</field>
+        <field name="res_model">restock.kanban.config</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Configure your Smart Restock Kanban thresholds
+            </p>
+            <p>
+                Set the thresholds for stock status categorization.
+            </p>
+        </field>
+    </record>
+</odoo>
