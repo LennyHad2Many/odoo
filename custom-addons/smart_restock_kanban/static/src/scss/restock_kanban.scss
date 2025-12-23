@@ -1,0 +1,29 @@
+// Smart Restock Kanban Styles
+
+.o_restock_kanban {
+    // Custom critical badge (orange)
+    .o_restock_badge_critical {
+        background-color: #fd7e14;
+        color: white;
+    }
+
+    // Column header colors based on status
+    .o_kanban_group[data-group-name="out_of_stock"] .o_kanban_header {
+        border-top: 3px solid #dc3545;
+    }
+    .o_kanban_group[data-group-name="critical"] .o_kanban_header {
+        border-top: 3px solid #fd7e14;
+    }
+    .o_kanban_group[data-group-name="warning"] .o_kanban_header {
+        border-top: 3px solid #ffc107;
+    }
+    .o_kanban_group[data-group-name="healthy"] .o_kanban_header {
+        border-top: 3px solid #198754;
+    }
+
+    // Reorder button hover effect
+    .o_restock_reorder_btn:hover {
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+    }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="smart_restock_kanban.RestockKanbanButtons" t-inherit="web.KanbanView.Buttons" t-inherit-mode="primary">
+        <!-- Extend with custom buttons if needed -->
+    </t>
+</templates>
